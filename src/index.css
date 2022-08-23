@@ -1,0 +1,14 @@
+:root {
+	margin: 0;
+	padding: 0;
+	font-family: Lato, Arial, sans-serif;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

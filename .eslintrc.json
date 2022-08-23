@@ -1,0 +1,56 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react-hooks/recommended",
+		"prettier"
+	],
+	"plugins": ["react", "@typescript-eslint", "react-hooks"],
+	"rules": {
+		"no-shadow": 0,
+		"linebreak-style": 0,
+		"semi": 1,
+		"object-curly-spacing": [1, "always"],
+		"object-curly-newline": 0,
+		"no-unused-vars": [
+			1,
+			{
+				"args": "after-used",
+				"argsIgnorePattern": "^_"
+			}
+		],
+		"no-underscore-dangle": [
+			"error",
+			{
+				"allow": ["_d", "_dh", "_h", "_id", "_m", "_n", "_t", "_text"]
+			}
+		],
+		"max-len": [
+			2,
+			{
+				"code": 120
+			}
+		],
+		"react/function-component-definition": 0,
+		"react/prop-types": 0,
+		"react/state-in-constructor": 0,
+		"react/react-in-jsx-scope": 0,
+		"import/extensions": 0,
+		"import/prefer-default-export": 0,
+		"react/jsx-filename-extension": 0,
+		"react/jsx-one-expression-per-line": 0
+	}
+}
