@@ -9,6 +9,7 @@ export const links = [
 		links: [
 			{
 				name: 'home',
+				to: 'home',
 				icon: <FiShoppingBag />
 			}
 		]
@@ -17,15 +18,18 @@ export const links = [
 		title: 'Pages',
 		links: [
 			{
-				name: 'orders',
+				name: 'sort',
+				to: 'sort',
 				icon: <AiOutlineShoppingCart />
 			},
 			{
-				name: 'employees',
+				name: 'Path Finder',
+				to: 'path-finder',
 				icon: <IoMdContacts />
 			},
 			{
-				name: 'customers',
+				name: 'Prime Numbers',
+				to: 'prime-numbers',
 				icon: <RiContactsLine />
 			}
 		]
