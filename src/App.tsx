@@ -6,8 +6,10 @@ import PrimeNumbers from './pages/PrimeNumbers';
 import Sorting from './pages/Sorting';
 import { useStateContext } from './context/ContextProvider';
 
-import './App.css';
 import Sidebar from './components/Sidebar';
+import Navbar from './components/Navbar';
+
+import './App.css';
 
 function App() {
 	const { activeMenu } = useStateContext();
@@ -32,6 +34,9 @@ function App() {
 								: 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2'
 						}
 					>
+						<div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+							<Navbar />
+						</div>
 						<div>
 							<Routes>
 								<Route path='/' element={<Home />} />

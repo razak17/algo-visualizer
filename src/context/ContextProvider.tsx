@@ -16,9 +16,12 @@ type ScreenSizeType = number | undefined;
 
 /* eslint-disable no-unused-vars */
 export type CreateContextType = {
+	initialState: initialStateType;
+	handleClick: (clicked: string) => void;
 	activeMenu: boolean;
 	setActiveMenu: Dispatch<SetStateAction<boolean>>;
-	initialState: initialStateType;
+	isClicked: initialStateType;
+	setIsClicked: Dispatch<SetStateAction<initialStateType>>;
 	screenSize: ScreenSizeType;
 	setScreenSize: Dispatch<SetStateAction<ScreenSizeType>>;
 };
@@ -37,15 +40,21 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
 	const [activeMenu, setActiveMenu] = useState(true);
 	const [screenSize, setScreenSize] = useState<ScreenSizeType>(undefined);
+	const [isClicked, setIsClicked] = useState(initialState);
+	const handleClick = (clicked: string) =>
+		setIsClicked({ ...initialState, [clicked]: true });
 
 	return (
 		<StateContext.Provider
 			value={{
+				initialState,
+				handleClick,
 				activeMenu,
 				setActiveMenu,
 				screenSize,
 				setScreenSize,
-				initialState
+				isClicked,
+				setIsClicked
 			}}
 		>
 			{children}
