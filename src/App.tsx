@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import PathFinder from './pages/PathFinder';
 import PrimeNumbers from './pages/PrimeNumbers';
-import Sorting from './pages/Sorting';
+import Sorting from './pages/Sort/Sorting';
 import { useStateContext } from './context/ContextProvider';
 
 import Sidebar from './components/Sidebar';

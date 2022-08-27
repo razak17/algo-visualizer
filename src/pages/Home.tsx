@@ -1,9 +1,9 @@
 const Home = () => {
 	return (
 		<div className='p-2 md:ml-6 md:mr-6'>
-        <div className='m-3'>
-          <h3>Visualize algorithms for a better understanding</h3>
-      </div>
+			<div className='m-3'>
+				<h3>Visualize algorithms for a better understanding</h3>
+			</div>
 			<div className='flex flex-wrap lg:flex-nowrap'>
 				<div className='flex m-3 flex-wrap justify-center gap-6 items-center'>
 					{['Sorting', 'Path Finder', 'Prime Numbers'].map((item) => (

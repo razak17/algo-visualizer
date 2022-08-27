@@ -25,7 +25,7 @@ const NavButton: FC<{
 	</button>
 );
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
 	const { activeMenu, setActiveMenu, setScreenSize, screenSize } =
 		useStateContext();
 
