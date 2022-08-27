@@ -1,10 +1,12 @@
 import { Dispatch, SetStateAction } from 'react';
 import { SortAlgorithm, SortArray } from '../../context/ContextProvider';
+import { sleep, finishedAnimation } from '../../utils';
 
 export const bubbleSort = async (
 	array: number[],
 	setSortAlgorithm: Dispatch<SetStateAction<SortAlgorithm>>,
-	setSortArray: Dispatch<SetStateAction<SortArray>>
+	setSortArray: Dispatch<SetStateAction<SortArray>>,
+	animationSpeed: number
 ) => {
 	const currentArr = array;
 	let sorted = false;
@@ -25,6 +27,7 @@ export const bubbleSort = async (
 					const rightBar = document.getElementById((j + 1).toString())?.style;
 					if (leftBar) leftBar.backgroundColor = '#DC143C';
 					if (rightBar) rightBar.backgroundColor = '#6A5ACD';
+					await sleep(animationSpeed);
 
 					if (leftBar) leftBar.backgroundColor = '#FF7F50';
 					if (rightBar) rightBar.backgroundColor = '#FF7F50';
@@ -33,8 +36,6 @@ export const bubbleSort = async (
 				}
 			}
 		}
-		{
-			/* if (sorted) finishedAnimation(); */
-		}
+		if (sorted) finishedAnimation(array, animationSpeed);
 	}
 };

@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useStateContext } from '../../context/ContextProvider';
 import { bubbleSort } from '../../lib/sort/bubbleSort';
+import { randomValues } from '../../utils';
 
 const ARRAYSIZE = 80;
 
 const Sorting = () => {
+  const [animationSpeed, setAnimationSpeed] = useState(50)
   const { sortArray, setSortArray, sortAlgorithm, setSortAlgorithm } = useStateContext();
 
 	const randomizeArray = () => {
@@ -20,23 +22,14 @@ const Sorting = () => {
 		setSortArray(array);
 	};
 
-	const randomValues = (min: number, max: number) => {
-		const randomVal = Math.floor(Math.random() * (max - min + 1) + min);
-		return randomVal;
-	};
-
 	useEffect(() => {
 		randomizeArray();
 	}, []);
 
-	const sleep = (milliseconds: number) => {
-		return new Promise((resolve) => setTimeout(resolve, milliseconds));
-	};
-
 	const handleSorting = () => {
 		switch (sortAlgorithm.name) {
 			case 'Bubble Sort':
-				bubbleSort(sortArray, setSortAlgorithm, setSortArray);
+				bubbleSort(sortArray, setSortAlgorithm, setSortArray, animationSpeed);
 				break;
 			default:
 				break;
