@@ -6,7 +6,7 @@ import { randomValues } from '../../utils';
 const ARRAYSIZE = 80;
 
 const Sorting = () => {
-  const [animationSpeed, setAnimationSpeed] = useState(50)
+  const [animationSpeed, setAnimationSpeed] = useState(300)
   const { sortArray, setSortArray, sortAlgorithm, setSortAlgorithm } = useStateContext();
 
 	const randomizeArray = () => {
