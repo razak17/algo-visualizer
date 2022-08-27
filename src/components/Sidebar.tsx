@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { MdOutlineCancel } from 'react-icons/md';
 
 import { useStateContext } from '../context/ContextProvider';
-import { links } from '../data'
+import { links } from '../data';
 
 const Sidebar: React.FC = () => {
 	const { activeMenu, setActiveMenu, screenSize } = useStateContext();
@@ -17,7 +17,7 @@ const Sidebar: React.FC = () => {
 
 	const link = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg';
 	const activeLink = `${link} text-white  text-md m-2`;
-	const normalLink = `${link} text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2`;
+	const normalLink = `${link} text-md text-gray-200 hover:text-gray-400 m-2`;
 
 	return (
 		<div className='ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10'>
@@ -31,7 +31,7 @@ const Sidebar: React.FC = () => {
 							type='button'
 							onClick={() => setActiveMenu(!activeMenu)}
 							style={{ color: '#03C9D7' }}
-							className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden'
+							className='text-xl rounded-full p-3 hover:text-gray-400 mt-4 block md:hidden'
 						>
 							<MdOutlineCancel />
 						</button>
@@ -39,14 +39,16 @@ const Sidebar: React.FC = () => {
 					<div className='mt-10 '>
 						{links.map((item) => (
 							<div key={item.title}>
-								<p className='text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase'>
-									{item.title}
-								</p>
+								<p className='text-gray-400 m-3 mt-4 uppercase'>{item.title}</p>
 								{item.links.map((link) => (
 									<NavLink
 										to={`/${link.to}`}
 										key={link.name}
 										onClick={handleCloseSideBar}
+										style={({ isActive }) => ({
+											backgroundColor: isActive ? '#bebebe' : '',
+											color: isActive ? '#333' : ''
+										})}
 										className={({ isActive }) => (isActive ? activeLink : normalLink)}
 									>
 										{link.icon}
