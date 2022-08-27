@@ -5,14 +5,24 @@ import React, {
 	useContext,
 	useState
 } from 'react';
-type initialStateType = {
+
+export type initialStateType = {
 	chat: boolean;
 	cart: boolean;
 	userProfile: boolean;
 	notification: boolean;
 };
 
-type ScreenSizeType = number | undefined;
+export type ScreenSizeType = number | undefined;
+
+export type SortArray = number[];
+
+export type Sort = 'Bubble Sort' | 'Heap Sort' | 'Insertion Sort' | 'Merge Sort' | 'Quick Sort' | 'Selection Sort';
+
+export type SortAlgorithm = {
+	name: Sort;
+	timeComplexity: string;
+};
 
 /* eslint-disable no-unused-vars */
 export type CreateContextType = {
@@ -24,6 +34,10 @@ export type CreateContextType = {
 	setIsClicked: Dispatch<SetStateAction<initialStateType>>;
 	screenSize: ScreenSizeType;
 	setScreenSize: Dispatch<SetStateAction<ScreenSizeType>>;
+	sortArray: SortArray;
+	setSortArray: Dispatch<SetStateAction<SortArray>>;
+	sortAlgorithm: SortAlgorithm;
+	setSortAlgorithm: Dispatch<SetStateAction<SortAlgorithm>>;
 };
 
 const StateContext = createContext<CreateContextType | undefined>(undefined);
@@ -41,6 +55,12 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 	const [activeMenu, setActiveMenu] = useState(true);
 	const [screenSize, setScreenSize] = useState<ScreenSizeType>(undefined);
 	const [isClicked, setIsClicked] = useState(initialState);
+	const [sortArray, setSortArray] = useState<SortArray>([]);
+	const [sortAlgorithm, setSortAlgorithm] = useState<SortAlgorithm>({
+		name: 'Bubble Sort',
+		timeComplexity: ''
+	});
+
 	const handleClick = (clicked: string) =>
 		setIsClicked({ ...initialState, [clicked]: true });
 
@@ -54,7 +74,11 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 				screenSize,
 				setScreenSize,
 				isClicked,
-				setIsClicked
+				setIsClicked,
+				sortArray,
+				setSortArray,
+				sortAlgorithm,
+				setSortAlgorithm
 			}}
 		>
 			{children}
