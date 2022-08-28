@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Dropdown from '../../components/Dropdown';
-import { Sort, useStateContext } from '../../context/ContextProvider';
+import { SortName, useStateContext } from '../../context/ContextProvider';
 import { bubbleSort } from '../../lib/sort/bubbleSort';
 import { randomValues } from '../../utils';
 import { sortInfo } from '../../data';
@@ -22,10 +22,6 @@ const Sorting = () => {
 		setSortDisableOptions
 	} = useStateContext();
 
-	useEffect(() => {
-		randomizeArray();
-	}, []);
-
 	const randomizeArray = () => {
 		for (let i = 0; i < sortArray.length; i++) {
 			const bar = document.getElementById(i.toString())?.style;
@@ -38,15 +34,19 @@ const Sorting = () => {
 		setSortArray(array);
 	};
 
+	useEffect(() => {
+		randomizeArray();
+	}, []);
+
 	const handleSlider = (e: string) => {
 		console.log(e);
 		setSliderValue(parseInt(e));
-    setAnimationSpeed(parseInt(e) * 100);
+		setAnimationSpeed(parseInt(e) * 100);
 	};
 
 	const handleSorting = () => {
 		setSortDisableOptions(true);
-		switch (sortAlgorithm.name) {
+		switch (sortAlgorithm.title) {
 			case 'Bubble Sort':
 				bubbleSort(
 					sortArray,
@@ -61,15 +61,14 @@ const Sorting = () => {
 		}
 	};
 
-	const handleAlgorithm = (algorithm: Sort) => {
+	const handleAlgorithm = (algorithm: SortName) => {
 		const target = sortInfo.find((e) => e.name === algorithm);
-		if (target)
-			setSortAlgorithm({ name: algorithm, timeComplexity: target.timeComplexity });
+		if (target) setSortAlgorithm(target);
 	};
 
 	return (
 		<div className='p-2 md:ml-6 md:mr-6'>
-			<div className='m-3'>
+			<div className='m-2'>
 				<div className='flex justify-between pt-2 pb-2 align-middle relative'>
 					<Button
 						name='New Array'
@@ -77,7 +76,7 @@ const Sorting = () => {
 						disabled={sortDisableOptions}
 					/>
 					<Dropdown
-						onChange={(e) => handleAlgorithm(e.target.value as Sort)}
+						onChange={(e) => handleAlgorithm(e.target.value as SortName)}
 						disabled={sortDisableOptions}
 					/>
 					<div>
@@ -89,6 +88,7 @@ const Sorting = () => {
 							max={5}
 							step={1}
 							value={sliderValue}
+							disabled={sortDisableOptions}
 							onChange={(e) => handleSlider(e.target.value)}
 						></input>
 					</div>
@@ -98,7 +98,7 @@ const Sorting = () => {
 						disabled={sortDisableOptions}
 					/>
 				</div>
-				<div className='mt-8'>
+				<div className='mt-6'>
 					{sortArray &&
 						sortArray.map((val, key) => {
 							return (
@@ -111,6 +111,14 @@ const Sorting = () => {
 							);
 						})}
 				</div>
+				{sortAlgorithm.name && (
+					<div className='flex justify-center items-center rounded-lg h-12 border-2 border-orange-400 mt-2'>
+						<div className='text-lg'>Algorithm: {sortAlgorithm.title}</div>
+						<div className='ml-12 text-lg'>
+							Time Complexity: {sortAlgorithm.timeComplexity}
+						</div>
+					</div>
+				)}
 			</div>
 		</div>
 	);

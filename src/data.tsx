@@ -2,6 +2,7 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FiShoppingBag } from 'react-icons/fi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine } from 'react-icons/ri';
+import { SortAlgorithm } from './context/ContextProvider';
 
 export const links = [
 	{
@@ -36,11 +37,11 @@ export const links = [
 	}
 ];
 
-export const sortInfo = [
-	{ name: 'bubbleSort', timeComplexity: '' },
-	{ name: 'insertionSort', timeComplexity: '' },
-	{ name: 'heapSort', timeComplexity: '' },
-	{ name: 'mergeSort', timeComplexity: '' },
-	{ name: 'quickSort', timeComplexity: '' },
-	{ name: 'selectionSort', timeComplexity: '' }
+export const sortInfo: SortAlgorithm[] = [
+	{ name: 'bubbleSort', title: 'Bubble Sort', timeComplexity: 'O(n^2)' },
+	{ name: 'insertionSort', title: 'Insertion Sort', timeComplexity: 'O(n^2)' },
+	{ name: 'heapSort', title: 'Heap Sort', timeComplexity: 'O(n log(n))' },
+	{ name: 'mergeSort', title: 'Merge Sort', timeComplexity: 'O(n log(n))' },
+	{ name: 'quickSort', title: 'Quick Sort', timeComplexity: 'O(n log(n))' },
+	{ name: 'selectionSort', title: 'Selection Sort', timeComplexity: 'O(n^2)' }
 ];

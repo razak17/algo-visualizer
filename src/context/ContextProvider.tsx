@@ -14,14 +14,16 @@ export type initialStateType = {
 };
 
 export type ScreenSizeType = number | undefined;
-
 export type SortArray = number[];
 
-export type Sort = 'Bubble Sort' | 'Heap Sort' | 'Insertion Sort' | 'Merge Sort' | 'Quick Sort' | 'Selection Sort';
+export type SortName = 'bubbleSort' | 'heapSort' | 'insertionSort' | 'mergeSort' | 'quickSort' | 'selectionSort';
+export type SortTitle = 'Bubble Sort' | 'Heap Sort' | 'Insertion Sort' | 'Merge Sort' | 'Quick Sort' | 'Selection Sort';
+export type SortTimeComplexities = 'O(n^2)' | 'O(n log(n))';
 
 export type SortAlgorithm = {
-	name: Sort;
-	timeComplexity: string;
+	name: SortName;
+	title: SortTitle;
+	timeComplexity: SortTimeComplexities;
 };
 
 /* eslint-disable no-unused-vars */
@@ -59,8 +61,9 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 	const [isClicked, setIsClicked] = useState(initialState);
 	const [sortArray, setSortArray] = useState<SortArray>([]);
 	const [sortAlgorithm, setSortAlgorithm] = useState<SortAlgorithm>({
-		name: 'Bubble Sort',
-		timeComplexity: ''
+		name: 'bubbleSort',
+		title: 'Bubble Sort',
+		timeComplexity: 'O(n^2)'
 	});
 	const [sortDisableOptions, setSortDisableOptions] = useState(false);
 

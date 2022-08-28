@@ -11,8 +11,7 @@ export const bubbleSort = async (
 ) => {
 	const currentArr = array;
 	let sorted = false;
-	setSortAlgorithm({ name: 'Bubble Sort', timeComplexity: 'O(n^2)' });
-
+	setSortAlgorithm({ name: 'bubbleSort', title: 'Bubble Sort', timeComplexity: 'O(n^2)' });
 	while (!sorted) {
 		sorted = true;
 
