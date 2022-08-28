@@ -21,6 +21,7 @@
 	"plugins": ["react", "@typescript-eslint", "react-hooks"],
 	"rules": {
 		"no-shadow": 0,
+		"no-console": 0,
 		"linebreak-style": 0,
 		"semi": 1,
 		"object-curly-spacing": [1, "always"],
