@@ -10,7 +10,7 @@ import Button from '../../components/Button';
 const ARRAYSIZE = 80;
 
 const Sorting = () => {
-	const [animationSpeed, setAnimationSpeed] = useState(300);
+	const [animationSpeed, setAnimationSpeed] = useState(400);
 	const [sliderValue, setSliderValue] = useState(4);
 
 	const {
@@ -38,10 +38,19 @@ const Sorting = () => {
 		randomizeArray();
 	}, []);
 
+	const sliderValues = [
+		{ id: 5, val: 50 },
+		{ id: 4, val: 200 },
+		{ id: 3, val: 300 },
+		{ id: 2, val: 400 },
+		{ id: 1, val: 500 }
+	];
+
 	const handleSlider = (e: string) => {
-		console.log(e);
-		setSliderValue(parseInt(e));
-		setAnimationSpeed((parseInt(e)) * 100);
+		const valToInt = parseInt(e);
+		setSliderValue(valToInt);
+		const target = sliderValues.find((e) => e.id === valToInt);
+		target && setAnimationSpeed(target.val);
 	};
 
 	const handleSorting = () => {
@@ -89,7 +98,7 @@ const Sorting = () => {
 							step={1}
 							value={sliderValue}
 							disabled={sortDisableOptions}
-              className="cursor-pointer"
+							className='cursor-pointer'
 							onChange={(e) => handleSlider(e.target.value)}
 						></input>
 					</div>
