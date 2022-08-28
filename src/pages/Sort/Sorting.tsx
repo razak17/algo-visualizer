@@ -41,7 +41,7 @@ const Sorting = () => {
 	const handleSlider = (e: string) => {
 		console.log(e);
 		setSliderValue(parseInt(e));
-		setAnimationSpeed(parseInt(e) * 100);
+		setAnimationSpeed((parseInt(e)) * 100);
 	};
 
 	const handleSorting = () => {
@@ -89,6 +89,7 @@ const Sorting = () => {
 							step={1}
 							value={sliderValue}
 							disabled={sortDisableOptions}
+              className="cursor-pointer"
 							onChange={(e) => handleSlider(e.target.value)}
 						></input>
 					</div>

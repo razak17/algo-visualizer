@@ -5,9 +5,14 @@ const Button: FC<{
 	disabled: boolean;
 	onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }> = ({ name, disabled, onClick }) => {
+	const styles = 'pr-3 pl-3  text-gray-700 rounded-lg text-md';
 	return (
 		<button
-			className='pr-3 pl-3 bg-orange-400 text-gray-700 rounded-lg text-md hover:bg-orange-300'
+			className={
+				disabled
+					? `${styles} bg-gray-500 text-gray-300`
+					: `${styles} bg-orange-400  hover:bg-orange-300`
+			}
 			disabled={disabled}
 			onClick={onClick}
 		>
