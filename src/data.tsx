@@ -47,7 +47,7 @@ export const sortInfo: SortAlgorithm[] = [
 ];
 
 export const arrayColors = {
-  red: '#DC143C',
-  blue: '#6A5ACD',
-  orange: '#FF7F50'
+	red: '#DC143C',
+	blue: '#6A5ACD',
+	orange: '#FF7F50'
 };

@@ -8,7 +8,7 @@ import { sortInfo } from '../../data';
 import Button from '../../components/Button';
 import { heapSort } from '../../lib/sort/heapSort';
 
-const ARRAYSIZE = 20;
+const ARRAYSIZE = 80;
 
 const Sorting = () => {
 	const [animationSpeed, setAnimationSpeed] = useState(50);

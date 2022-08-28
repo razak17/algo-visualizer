@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from 'react';
 
 export const sleep = (milliseconds: number) => {
 	return new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -12,12 +12,12 @@ export const randomValues = (min: number, max: number) => {
 export const finishedAnimation = async (
 	array: number[],
 	animationSpeed: number,
-  setSortDisableOptions: Dispatch<SetStateAction<boolean>>
+	setSortDisableOptions: Dispatch<SetStateAction<boolean>>
 ) => {
 	for (let i = 0; i < array.length; i++) {
 		const bar = document.getElementById(i.toString())?.style;
 		if (bar) bar.backgroundColor = 'green';
 		await sleep(animationSpeed);
 	}
-    setSortDisableOptions(false)
+	setSortDisableOptions(false);
 };

@@ -14,7 +14,7 @@ export const bubbleSort = async (
 	let sorted = false;
 	while (!sorted) {
 		sorted = true;
-    setSortArraySorted(true);
+		setSortArraySorted(true);
 
 		for (let i = 0; i < currentArr.length - 1; i++) {
 			for (let j = 0; j < currentArr.length - i - 1; j++) {

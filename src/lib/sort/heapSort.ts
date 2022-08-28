@@ -96,5 +96,5 @@ export const heapSort = async (
 	}
 
 	finishedAnimation(array, animationSpeed, setSortDisableOptions);
-  setSortArraySorted(true);
+	setSortArraySorted(true);
 };

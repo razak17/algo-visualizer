@@ -58,7 +58,7 @@ const Navbar = () => {
 				{['Complexity', 'About', 'Contact'].map((item) => (
 					<li key={`link-${item}`}>
 						<a href='' className='pl-6'>
-              {item}
+							{item}
 						</a>
 					</li>
 				))}

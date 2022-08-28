@@ -4,12 +4,16 @@ const Dropdown: FC<{
 	onChange: React.ChangeEventHandler<HTMLSelectElement>;
 	disabled: boolean;
 }> = ({ onChange, disabled }) => {
-  const styles = 'p-4 rounded-lg border-none text-md'
+	const styles = 'p-4 rounded-lg border-none text-md';
 
 	return (
 		<div className='rounded-sm text-gray-700'>
 			<select
-        className={(disabled ? `${styles} bg-gray-500 text-gray-300` : `${styles} bg-orange-300 cursor-pointer`)}
+				className={
+					disabled
+						? `${styles} bg-gray-500 text-gray-300`
+						: `${styles} bg-orange-300 cursor-pointer`
+				}
 				onChange={onChange}
 				disabled={disabled}
 			>
