@@ -5,7 +5,6 @@ import { Sort, useStateContext } from '../../context/ContextProvider';
 import { bubbleSort } from '../../lib/sort/bubbleSort';
 import { randomValues } from '../../utils';
 import { sortInfo } from '../../data';
-import Slider from '../../components/Slider';
 import Button from '../../components/Button';
 
 const ARRAYSIZE = 80;
