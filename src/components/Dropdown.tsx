@@ -7,7 +7,7 @@ const Dropdown: FC<{
 	return (
 		<div className='rounded-sm text-gray-700'>
 			<select
-				className='bg-orange-300 p-2 w-36 h-10 rounded-lg cursor-pointer border-none text-md'
+				className='bg-orange-300 p-4 rounded-lg cursor-pointer border-none text-md'
 				onChange={onChange}
 				disabled={disabled}
 			>

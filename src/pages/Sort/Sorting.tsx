@@ -6,6 +6,7 @@ import { bubbleSort } from '../../lib/sort/bubbleSort';
 import { randomValues } from '../../utils';
 import { sortInfo } from '../../data';
 import Slider from '../../components/Slider';
+import Button from '../../components/Button';
 
 const ARRAYSIZE = 80;
 
@@ -41,6 +42,7 @@ const Sorting = () => {
 	const handleSlider = (e: string) => {
 		console.log(e);
 		setSliderValue(parseInt(e));
+    setAnimationSpeed(parseInt(e) * 100);
 	};
 
 	const handleSorting = () => {
@@ -70,9 +72,11 @@ const Sorting = () => {
 		<div className='p-2 md:ml-6 md:mr-6'>
 			<div className='m-3'>
 				<div className='flex justify-between pt-2 pb-2 align-middle relative'>
-					<button onClick={randomizeArray} disabled={sortDisableOptions}>
-						New Array
-					</button>
+					<Button
+						name='New Array'
+						onClick={randomizeArray}
+						disabled={sortDisableOptions}
+					/>
 					<Dropdown
 						onChange={(e) => handleAlgorithm(e.target.value as Sort)}
 						disabled={sortDisableOptions}
@@ -89,9 +93,11 @@ const Sorting = () => {
 							onChange={(e) => handleSlider(e.target.value)}
 						></input>
 					</div>
-					<button onClick={handleSorting} disabled={sortDisableOptions}>
-						Sort
-					</button>
+					<Button
+						name='Sort'
+						onClick={handleSorting}
+						disabled={sortDisableOptions}
+					/>
 				</div>
 				<div className='mt-8'>
 					{sortArray &&
