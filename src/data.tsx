@@ -45,3 +45,9 @@ export const sortInfo: SortAlgorithm[] = [
 	{ name: 'quickSort', title: 'Quick Sort', timeComplexity: 'O(n log(n))' },
 	{ name: 'selectionSort', title: 'Selection Sort', timeComplexity: 'O(n^2)' }
 ];
+
+export const arrayColors = {
+  red: '#DC143C',
+  blue: '#6A5ACD',
+  orange: '#FF7F50'
+};

@@ -1,17 +1,16 @@
 import { Dispatch, SetStateAction } from 'react';
-import { SortAlgorithm, SortArray } from '../../context/ContextProvider';
+import { SortArray } from '../../context/ContextProvider';
+import { arrayColors } from '../../data';
 import { sleep, finishedAnimation } from '../../utils';
 
 export const bubbleSort = async (
 	array: number[],
-  animationSpeed: number,
-	setSortAlgorithm: Dispatch<SetStateAction<SortAlgorithm>>,
+	animationSpeed: number,
 	setSortArray: Dispatch<SetStateAction<SortArray>>,
-  setSortDisableOptions: Dispatch<SetStateAction<boolean>>
+	setSortDisableOptions: Dispatch<SetStateAction<boolean>>
 ) => {
 	const currentArr = array;
 	let sorted = false;
-	setSortAlgorithm({ name: 'bubbleSort', title: 'Bubble Sort', timeComplexity: 'O(n^2)' });
 	while (!sorted) {
 		sorted = true;
 
@@ -25,12 +24,12 @@ export const bubbleSort = async (
 
 					const leftBar = document.getElementById(j.toString())?.style;
 					const rightBar = document.getElementById((j + 1).toString())?.style;
-					if (leftBar) leftBar.backgroundColor = '#DC143C';
-					if (rightBar) rightBar.backgroundColor = '#6A5ACD';
+					if (leftBar) leftBar.backgroundColor = arrayColors.red;
+					if (rightBar) rightBar.backgroundColor = arrayColors.blue;
 					await sleep(animationSpeed);
 
-					if (leftBar) leftBar.backgroundColor = '#FF7F50';
-					if (rightBar) rightBar.backgroundColor = '#FF7F50';
+					if (leftBar) leftBar.backgroundColor = arrayColors.orange;
+					if (rightBar) rightBar.backgroundColor = arrayColors.orange;
 
 					sorted = false;
 				}

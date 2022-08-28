@@ -40,7 +40,7 @@ export type CreateContextType = {
 	setSortArray: Dispatch<SetStateAction<SortArray>>;
 	sortAlgorithm: SortAlgorithm;
 	setSortAlgorithm: Dispatch<SetStateAction<SortAlgorithm>>;
-  sortDisableOptions: boolean
+	sortDisableOptions: boolean;
 	setSortDisableOptions: Dispatch<SetStateAction<boolean>>;
 };
 
@@ -85,8 +85,8 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 				setSortArray,
 				sortAlgorithm,
 				setSortAlgorithm,
-        sortDisableOptions,
-        setSortDisableOptions
+				sortDisableOptions,
+				setSortDisableOptions
 			}}
 		>
 			{children}

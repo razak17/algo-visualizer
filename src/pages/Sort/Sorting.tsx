@@ -6,12 +6,13 @@ import { bubbleSort } from '../../lib/sort/bubbleSort';
 import { randomValues } from '../../utils';
 import { sortInfo } from '../../data';
 import Button from '../../components/Button';
+import { heapSort } from '../../lib/sort/heapSort';
 
-const ARRAYSIZE = 80;
+const ARRAYSIZE = 20;
 
 const Sorting = () => {
-	const [animationSpeed, setAnimationSpeed] = useState(400);
-	const [sliderValue, setSliderValue] = useState(4);
+	const [animationSpeed, setAnimationSpeed] = useState(50);
+	const [sliderValue, setSliderValue] = useState(5);
 
 	const {
 		sortArray,
@@ -40,7 +41,7 @@ const Sorting = () => {
 
 	const sliderValues = [
 		{ id: 5, val: 50 },
-		{ id: 4, val: 200 },
+		{ id: 4, val: 150 },
 		{ id: 3, val: 300 },
 		{ id: 2, val: 400 },
 		{ id: 1, val: 500 }
@@ -55,19 +56,14 @@ const Sorting = () => {
 
 	const handleSorting = () => {
 		setSortDisableOptions(true);
-		switch (sortAlgorithm.title) {
-			case 'Bubble Sort':
-				bubbleSort(
-					sortArray,
-					animationSpeed,
-					setSortAlgorithm,
-					setSortArray,
-					setSortDisableOptions
-				);
-				break;
-			default:
-				break;
-		}
+		const target = sortInfo.find((e) => e.name === sortAlgorithm.name);
+		target && setSortAlgorithm(target);
+
+		if (sortAlgorithm.title === 'Bubble Sort')
+			bubbleSort(sortArray, animationSpeed, setSortArray, setSortDisableOptions);
+
+		if (sortAlgorithm.title === 'Heap Sort')
+			heapSort(sortArray, animationSpeed, setSortArray, setSortDisableOptions);
 	};
 
 	const handleAlgorithm = (algorithm: SortName) => {
@@ -108,7 +104,7 @@ const Sorting = () => {
 						disabled={sortDisableOptions}
 					/>
 				</div>
-				<div className='mt-6'>
+				<div className='mt-6 w-full'>
 					{sortArray &&
 						sortArray.map((val, key) => {
 							return (
