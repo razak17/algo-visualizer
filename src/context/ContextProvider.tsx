@@ -16,8 +16,20 @@ export type initialStateType = {
 export type ScreenSizeType = number | undefined;
 export type SortArray = number[];
 
-export type SortName = 'bubbleSort' | 'heapSort' | 'insertionSort' | 'mergeSort' | 'quickSort' | 'selectionSort';
-export type SortTitle = 'Bubble Sort' | 'Heap Sort' | 'Insertion Sort' | 'Merge Sort' | 'Quick Sort' | 'Selection Sort';
+export type SortName =
+	| 'bubbleSort'
+	| 'heapSort'
+	| 'insertionSort'
+	| 'mergeSort'
+	| 'quickSort'
+	| 'selectionSort';
+export type SortTitle =
+	| 'Bubble Sort'
+	| 'Heap Sort'
+	| 'Insertion Sort'
+	| 'Merge Sort'
+	| 'Quick Sort'
+	| 'Selection Sort';
 export type SortTimeComplexities = 'O(n^2)' | 'O(n log(n))';
 
 export type SortAlgorithm = {
@@ -42,6 +54,8 @@ export type CreateContextType = {
 	setSortAlgorithm: Dispatch<SetStateAction<SortAlgorithm>>;
 	sortDisableOptions: boolean;
 	setSortDisableOptions: Dispatch<SetStateAction<boolean>>;
+	sortArraySorted: boolean;
+	setSortArraySorted: Dispatch<SetStateAction<boolean>>;
 };
 
 const StateContext = createContext<CreateContextType | undefined>(undefined);
@@ -57,6 +71,7 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 	children
 }) => {
 	const [activeMenu, setActiveMenu] = useState(true);
+	const [sortArraySorted, setSortArraySorted] = useState(true);
 	const [screenSize, setScreenSize] = useState<ScreenSizeType>(undefined);
 	const [isClicked, setIsClicked] = useState(initialState);
 	const [sortArray, setSortArray] = useState<SortArray>([]);
@@ -86,7 +101,9 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 				sortAlgorithm,
 				setSortAlgorithm,
 				sortDisableOptions,
-				setSortDisableOptions
+				setSortDisableOptions,
+				sortArraySorted,
+				setSortArraySorted
 			}}
 		>
 			{children}

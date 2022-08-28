@@ -20,7 +20,9 @@ const Sorting = () => {
 		sortAlgorithm,
 		setSortAlgorithm,
 		sortDisableOptions,
-		setSortDisableOptions
+		setSortDisableOptions,
+		sortArraySorted,
+		setSortArraySorted
 	} = useStateContext();
 
 	const randomizeArray = () => {
@@ -33,6 +35,7 @@ const Sorting = () => {
 			array.push(randomValues(20, 400));
 		}
 		setSortArray(array);
+		setSortArraySorted(false);
 	};
 
 	useEffect(() => {
@@ -60,10 +63,22 @@ const Sorting = () => {
 		target && setSortAlgorithm(target);
 
 		if (sortAlgorithm.title === 'Bubble Sort')
-			bubbleSort(sortArray, animationSpeed, setSortArray, setSortDisableOptions);
+			bubbleSort(
+				sortArray,
+				animationSpeed,
+				setSortArray,
+				setSortDisableOptions,
+				setSortArraySorted
+			);
 
 		if (sortAlgorithm.title === 'Heap Sort')
-			heapSort(sortArray, animationSpeed, setSortArray, setSortDisableOptions);
+			heapSort(
+				sortArray,
+				animationSpeed,
+				setSortArray,
+				setSortDisableOptions,
+				setSortArraySorted
+			);
 	};
 
 	const handleAlgorithm = (algorithm: SortName) => {
@@ -101,7 +116,7 @@ const Sorting = () => {
 					<Button
 						name='Sort'
 						onClick={handleSorting}
-						disabled={sortDisableOptions}
+						disabled={sortDisableOptions || sortArraySorted}
 					/>
 				</div>
 				<div className='mt-6 w-full'>

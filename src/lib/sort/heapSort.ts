@@ -41,7 +41,8 @@ export const heapSort = async (
 	array: number[],
 	animationSpeed: number,
 	setSortArray: Dispatch<SetStateAction<SortArray>>,
-	setSortDisableOptions: Dispatch<SetStateAction<boolean>>
+	setSortDisableOptions: Dispatch<SetStateAction<boolean>>,
+	setSortArraySorted: Dispatch<SetStateAction<boolean>>
 ) => {
 	const arr = array;
 	const length = arr.length;
@@ -95,4 +96,5 @@ export const heapSort = async (
 	}
 
 	finishedAnimation(array, animationSpeed, setSortDisableOptions);
+  setSortArraySorted(true);
 };

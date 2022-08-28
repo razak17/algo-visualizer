@@ -7,12 +7,14 @@ export const bubbleSort = async (
 	array: number[],
 	animationSpeed: number,
 	setSortArray: Dispatch<SetStateAction<SortArray>>,
-	setSortDisableOptions: Dispatch<SetStateAction<boolean>>
+	setSortDisableOptions: Dispatch<SetStateAction<boolean>>,
+	setSortArraySorted: Dispatch<SetStateAction<boolean>>
 ) => {
 	const currentArr = array;
 	let sorted = false;
 	while (!sorted) {
 		sorted = true;
+    setSortArraySorted(true);
 
 		for (let i = 0; i < currentArr.length - 1; i++) {
 			for (let j = 0; j < currentArr.length - i - 1; j++) {
