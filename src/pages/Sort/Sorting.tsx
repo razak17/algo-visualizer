@@ -1,13 +1,27 @@
 import { useEffect, useState } from 'react';
-import { useStateContext } from '../../context/ContextProvider';
+import Dropdown from '../../components/Dropdown';
+import {
+	Sort,
+	SortAlgorithm,
+	useStateContext
+} from '../../context/ContextProvider';
 import { bubbleSort } from '../../lib/sort/bubbleSort';
 import { randomValues } from '../../utils';
+import { sortInfo } from '../../data';
 
 const ARRAYSIZE = 80;
 
 const Sorting = () => {
-  const [animationSpeed, setAnimationSpeed] = useState(300)
-  const { sortArray, setSortArray, sortAlgorithm, setSortAlgorithm } = useStateContext();
+	const [animationSpeed, setAnimationSpeed] = useState(300);
+
+	const {
+		sortArray,
+		setSortArray,
+		sortAlgorithm,
+		setSortAlgorithm,
+		sortDisableOptions,
+		setSortDisableOptions
+	} = useStateContext();
 
 	const randomizeArray = () => {
 		for (let i = 0; i < sortArray.length; i++) {
@@ -27,23 +41,39 @@ const Sorting = () => {
 	}, []);
 
 	const handleSorting = () => {
+		setSortDisableOptions(true);
 		switch (sortAlgorithm.name) {
 			case 'Bubble Sort':
-				bubbleSort(sortArray, setSortAlgorithm, setSortArray, animationSpeed);
+				bubbleSort(
+					sortArray,
+					animationSpeed,
+					setSortAlgorithm,
+					setSortArray,
+					setSortDisableOptions
+				);
 				break;
 			default:
 				break;
 		}
 	};
 
+	const handleAlgorithm = (algorithm: Sort) => {
+		const target = sortInfo.find((e) => e.name === algorithm);
+		if (target)
+			setSortAlgorithm({ name: algorithm, timeComplexity: target.timeComplexity });
+	};
+
 	return (
 		<div className='p-2 md:ml-6 md:mr-6'>
 			<div className='m-3'>
 				<h1>Sorting</h1>
-				<button onClick={handleSorting} name='Sort'>
+				<button onClick={handleSorting} disabled={sortDisableOptions} name='Sort'>
 					Sort
 				</button>
-
+				<Dropdown
+					onChange={(e) => handleAlgorithm(e.target.value as Sort)}
+					disabled={sortDisableOptions}
+				/>
 				<div className='mt-8'>
 					{sortArray &&
 						sortArray.map((val, key) => {

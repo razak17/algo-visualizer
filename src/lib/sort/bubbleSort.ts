@@ -4,9 +4,10 @@ import { sleep, finishedAnimation } from '../../utils';
 
 export const bubbleSort = async (
 	array: number[],
+  animationSpeed: number,
 	setSortAlgorithm: Dispatch<SetStateAction<SortAlgorithm>>,
 	setSortArray: Dispatch<SetStateAction<SortArray>>,
-	animationSpeed: number
+  setSortDisableOptions: Dispatch<SetStateAction<boolean>>
 ) => {
 	const currentArr = array;
 	let sorted = false;
@@ -36,6 +37,6 @@ export const bubbleSort = async (
 				}
 			}
 		}
-		if (sorted) finishedAnimation(array, animationSpeed);
+		if (sorted) finishedAnimation(array, animationSpeed, setSortDisableOptions);
 	}
 };

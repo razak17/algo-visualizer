@@ -35,3 +35,12 @@ export const links = [
 		]
 	}
 ];
+
+export const sortInfo = [
+	{ name: 'bubbleSort', timeComplexity: '' },
+	{ name: 'insertionSort', timeComplexity: '' },
+	{ name: 'heapSort', timeComplexity: '' },
+	{ name: 'mergeSort', timeComplexity: '' },
+	{ name: 'quickSort', timeComplexity: '' },
+	{ name: 'selectionSort', timeComplexity: '' }
+];

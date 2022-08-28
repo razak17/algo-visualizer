@@ -38,6 +38,8 @@ export type CreateContextType = {
 	setSortArray: Dispatch<SetStateAction<SortArray>>;
 	sortAlgorithm: SortAlgorithm;
 	setSortAlgorithm: Dispatch<SetStateAction<SortAlgorithm>>;
+  sortDisableOptions: boolean
+	setSortDisableOptions: Dispatch<SetStateAction<boolean>>;
 };
 
 const StateContext = createContext<CreateContextType | undefined>(undefined);
@@ -60,6 +62,7 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 		name: 'Bubble Sort',
 		timeComplexity: ''
 	});
+	const [sortDisableOptions, setSortDisableOptions] = useState(false);
 
 	const handleClick = (clicked: string) =>
 		setIsClicked({ ...initialState, [clicked]: true });
@@ -78,7 +81,9 @@ export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
 				sortArray,
 				setSortArray,
 				sortAlgorithm,
-				setSortAlgorithm
+				setSortAlgorithm,
+        sortDisableOptions,
+        setSortDisableOptions
 			}}
 		>
 			{children}
