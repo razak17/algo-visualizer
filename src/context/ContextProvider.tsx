@@ -23,6 +23,7 @@ export type SortName =
 	| 'mergeSort'
 	| 'quickSort'
 	| 'selectionSort';
+
 export type SortTitle =
 	| 'Bubble Sort'
 	| 'Heap Sort'
@@ -30,6 +31,7 @@ export type SortTitle =
 	| 'Merge Sort'
 	| 'Quick Sort'
 	| 'Selection Sort';
+
 export type SortTimeComplexities = 'O(n^2)' | 'O(n log(n))';
 
 export type SortAlgorithm = {

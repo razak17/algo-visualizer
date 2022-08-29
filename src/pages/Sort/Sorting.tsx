@@ -7,6 +7,7 @@ import { randomValues } from '../../utils';
 import { sortInfo } from '../../data';
 import Button from '../../components/Button';
 import { heapSort } from '../../lib/sort/heapSort';
+import { insertionSort } from '../../lib/sort/insertionSort';
 
 const ARRAYSIZE = 80;
 
@@ -73,6 +74,14 @@ const Sorting = () => {
 
 		if (sortAlgorithm.title === 'Heap Sort')
 			heapSort(
+				sortArray,
+				animationSpeed,
+				setSortArray,
+				setSortDisableOptions,
+				setSortArraySorted
+			);
+		if (sortAlgorithm.title === 'Insertion Sort')
+			insertionSort(
 				sortArray,
 				animationSpeed,
 				setSortArray,
