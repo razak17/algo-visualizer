@@ -4,10 +4,11 @@ import Dropdown from '../../components/Dropdown';
 import { SortName, useStateContext } from '../../context/ContextProvider';
 import { bubbleSort } from '../../lib/sort/bubbleSort';
 import { randomValues } from '../../utils';
-import { sortInfo } from '../../data';
+import { arrayColors, sortInfo } from '../../data';
 import Button from '../../components/Button';
 import { heapSort } from '../../lib/sort/heapSort';
 import { insertionSort } from '../../lib/sort/insertionSort';
+import { mergeSort } from '../../lib/sort/mergeSort';
 
 const ARRAYSIZE = 80;
 
@@ -29,7 +30,7 @@ const Sorting = () => {
 	const randomizeArray = () => {
 		for (let i = 0; i < sortArray.length; i++) {
 			const bar = document.getElementById(i.toString())?.style;
-			if (bar) bar.backgroundColor = '#ff7f50';
+			if (bar) bar.backgroundColor = arrayColors.orange;
 		}
 		const array = [];
 		for (let i = 0; i < ARRAYSIZE; i++) {
@@ -82,6 +83,14 @@ const Sorting = () => {
 			);
 		if (sortAlgorithm.title === 'Insertion Sort')
 			insertionSort(
+				sortArray,
+				animationSpeed,
+				setSortArray,
+				setSortDisableOptions,
+				setSortArraySorted
+			);
+		if (sortAlgorithm.title === 'Merge Sort')
+			mergeSort(
 				sortArray,
 				animationSpeed,
 				setSortArray,
