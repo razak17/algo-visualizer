@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import Sort from './pages/Sort';
 import { useStateContext } from './context/ContextProvider';
@@ -35,9 +35,7 @@ function App() {
 							<Navbar />
 						</div>
 						<div>
-							<Routes>
-								<Route path='/' element={<Sort />} />
-							</Routes>
+							<Sort />
 						</div>
 					</div>
 				</div>
