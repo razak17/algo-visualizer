@@ -26,14 +26,6 @@ const Sidebar = () => {
 						<Link to='/' onClick={handleCloseSideBar}>
 							<h1 className='pt-4 pl-4 text-xl text-white'>AlgoVisual</h1>
 						</Link>
-						<button
-							type='button'
-							onClick={() => setActiveMenu(!activeMenu)}
-							style={{ color: '#03C9D7' }}
-							className='text-xl rounded-full p-3 hover:text-gray-400 mt-4 block md:hidden'
-						>
-							<MdOutlineCancel />
-						</button>
 					</div>
 					<div className='mt-10 '>
 						{links.map((item) => (
