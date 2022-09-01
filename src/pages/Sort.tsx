@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 
-import Dropdown from '../../components/Dropdown';
-import { SortName, useStateContext } from '../../context/ContextProvider';
-import { bubbleSort } from '../../lib/sort/bubbleSort';
-import { randomValues } from '../../utils';
-import { arrayColors, sortInfo } from '../../data';
-import Button from '../../components/Button';
-import { heapSort } from '../../lib/sort/heapSort';
-import { insertionSort } from '../../lib/sort/insertionSort';
-import { mergeSort } from '../../lib/sort/mergeSort';
-import { quickSort } from '../../lib/sort/quickSort';
-import { selectionSort } from '../../lib/sort/selectionSort';
+import Dropdown from '../components/Dropdown';
+import { SortName, useStateContext } from '../context/ContextProvider';
+import { bubbleSort } from '../lib/sort/bubbleSort';
+import { randomValues } from '../utils';
+import { arrayColors, sortInfo } from '../data';
+import Button from '../components/Button';
+import { heapSort } from '../lib/sort/heapSort';
+import { insertionSort } from '../lib/sort/insertionSort';
+import { mergeSort } from '../lib/sort/mergeSort';
+import { quickSort } from '../lib/sort/quickSort';
+import { selectionSort } from '../lib/sort/selectionSort';
 
 const ARRAYSIZE = 80;
 

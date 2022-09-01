@@ -54,15 +54,6 @@ const Navbar = () => {
 				customFunc={handleActiveMenu}
 				icon={<AiOutlineMenu />}
 			/>
-			{/* <ul className='flex justify-between p-2 relative'> */}
-			{/* 	{['Complexity', 'About', 'Contact'].map((item) => ( */}
-			{/* 		<li key={`link-${item}`}> */}
-			{/* 			<a href='' className='pl-6'> */}
-			{/* 				{item} */}
-			{/* 			</a> */}
-			{/* 		</li> */}
-			{/* 	))} */}
-			{/* </ul> */}
 		</div>
 	);
 };

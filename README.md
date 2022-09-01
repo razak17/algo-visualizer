@@ -1,6 +1,6 @@
 # Algo Visualizer
 
-### Visualize various algorithms
+### Visualize various sorting algorithms
 
 Created with React. Bootstrapped with vite.
 

@@ -1,9 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Home from './pages/Home';
-import PathFinder from './pages/PathFinder';
-import PrimeNumbers from './pages/PrimeNumbers';
-import Sorting from './pages/Sort/Sorting';
+import Sort from './pages/Sort';
 import { useStateContext } from './context/ContextProvider';
 
 import Sidebar from './components/Sidebar';
@@ -39,11 +36,7 @@ function App() {
 						</div>
 						<div>
 							<Routes>
-								<Route path='/' element={<Home />} />
-								<Route path='/home' element={<Home />} />
-								<Route path='/sort' element={<Sorting />} />
-								<Route path='/path-finder' element={<PathFinder />} />
-								<Route path='/prime-numbers' element={<PrimeNumbers />} />
+								<Route path='/' element={<Sort />} />
 							</Routes>
 						</div>
 					</div>
