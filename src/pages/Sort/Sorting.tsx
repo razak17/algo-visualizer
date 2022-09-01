@@ -9,6 +9,7 @@ import Button from '../../components/Button';
 import { heapSort } from '../../lib/sort/heapSort';
 import { insertionSort } from '../../lib/sort/insertionSort';
 import { mergeSort } from '../../lib/sort/mergeSort';
+import { quickSort } from '../../lib/sort/quickSort';
 
 const ARRAYSIZE = 80;
 
@@ -91,6 +92,14 @@ const Sorting = () => {
 			);
 		if (sortAlgorithm.title === 'Merge Sort')
 			mergeSort(
+				sortArray,
+				animationSpeed,
+				setSortArray,
+				setSortDisableOptions,
+				setSortArraySorted
+			);
+		if (sortAlgorithm.title === 'Quick Sort')
+			quickSort(
 				sortArray,
 				animationSpeed,
 				setSortArray,
