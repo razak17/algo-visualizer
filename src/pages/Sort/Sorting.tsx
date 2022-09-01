@@ -10,6 +10,7 @@ import { heapSort } from '../../lib/sort/heapSort';
 import { insertionSort } from '../../lib/sort/insertionSort';
 import { mergeSort } from '../../lib/sort/mergeSort';
 import { quickSort } from '../../lib/sort/quickSort';
+import { selectionSort } from '../../lib/sort/selectionSort';
 
 const ARRAYSIZE = 80;
 
@@ -100,6 +101,14 @@ const Sorting = () => {
 			);
 		if (sortAlgorithm.title === 'Quick Sort')
 			quickSort(
+				sortArray,
+				animationSpeed,
+				setSortArray,
+				setSortDisableOptions,
+				setSortArraySorted
+			);
+		if (sortAlgorithm.title === 'Selection Sort')
+			selectionSort(
 				sortArray,
 				animationSpeed,
 				setSortArray,
