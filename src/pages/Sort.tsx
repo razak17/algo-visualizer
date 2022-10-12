@@ -12,10 +12,11 @@ import { mergeSort } from '../lib/sort/mergeSort';
 import { quickSort } from '../lib/sort/quickSort';
 import { selectionSort } from '../lib/sort/selectionSort';
 
-const ARRAYSIZE = 80;
+const ARRAYSIZE = 20;
 
 const Sorting = () => {
 	const [animationSpeed, setAnimationSpeed] = useState(50);
+	const [arraySize, setArraySize] = useState(ARRAYSIZE);
 	const [sliderValue, setSliderValue] = useState(5);
 
 	const {
@@ -35,7 +36,7 @@ const Sorting = () => {
 			if (bar) bar.backgroundColor = arrayColors.orange;
 		}
 		const array = [];
-		for (let i = 0; i < ARRAYSIZE; i++) {
+		for (let i = 0; i < arraySize; i++) {
 			array.push(randomValues(20, 400));
 		}
 		setSortArray(array);
@@ -44,7 +45,7 @@ const Sorting = () => {
 
 	useEffect(() => {
 		randomizeArray();
-	}, []);
+	}, [arraySize]);
 
 	const sliderValues = [
 		{ id: 5, val: 50 },
@@ -149,13 +150,27 @@ const Sorting = () => {
 							onChange={(e) => handleSlider(e.target.value)}
 						></input>
 					</div>
+					<div>
+						<p>Array Size:</p>
+						<input
+							id='arr_size'
+							type='range'
+							min={20}
+							max={80}
+							step={5}
+							value={arraySize}
+							disabled={sortDisableOptions}
+							className='cursor-pointer'
+              onChange={(e) => setArraySize(parseInt(e.target.value))}
+						></input>
+					</div>
 					<Button
 						name='Sort'
 						onClick={handleSorting}
 						disabled={sortDisableOptions || sortArraySorted}
 					/>
 				</div>
-				<div className='mt-6 w-full'>
+				<div className='mt-6 w-full items-center'>
 					{sortArray &&
 						sortArray.map((val, key) => {
 							return (
