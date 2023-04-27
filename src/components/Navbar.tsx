@@ -4,11 +4,11 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { useStateContext } from '../context/ContextProvider';
 
 interface NavButtonProps {
-  title: string;
-  customFunc: () => void;
-  icon: JSX.Element;
-  color?: string;
-  dotColor?: string;
+	title: string;
+	customFunc: () => void;
+	icon: JSX.Element;
+	color?: string;
+	dotColor?: string;
 }
 
 const NavButton = ({ customFunc, icon, color, dotColor }: NavButtonProps) => (
