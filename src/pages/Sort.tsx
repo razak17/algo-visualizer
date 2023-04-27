@@ -161,7 +161,7 @@ const Sorting = () => {
 							value={arraySize}
 							disabled={sortDisableOptions}
 							className='cursor-pointer'
-              onChange={(e) => setArraySize(parseInt(e.target.value))}
+							onChange={(e) => setArraySize(parseInt(e.target.value))}
 						></input>
 					</div>
 					<Button

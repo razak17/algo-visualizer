@@ -2,15 +2,16 @@ import { useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 
 import { useStateContext } from '../context/ContextProvider';
-import { FC } from '../types';
 
-const NavButton: FC<{
-	title: string;
-	customFunc: () => void;
-	icon: JSX.Element;
-	color?: string;
-	dotColor?: string;
-}> = ({ customFunc, icon, color, dotColor }) => (
+interface NavButtonProps {
+  title: string;
+  customFunc: () => void;
+  icon: JSX.Element;
+  color?: string;
+  dotColor?: string;
+}
+
+const NavButton = ({ customFunc, icon, color, dotColor }: NavButtonProps) => (
 	<button
 		type='button'
 		onClick={() => customFunc()}

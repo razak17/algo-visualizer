@@ -1,11 +1,11 @@
-import { FC } from '../types';
-
-const Button: FC<{
+interface ButtonProps {
 	name: string;
 	disabled: boolean;
 	onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
-}> = ({ name, disabled, onClick }) => {
-	const styles = 'pr-3 pl-3  text-gray-700 rounded-lg text-md';
+}
+
+const Button = ({ name, disabled, onClick }: ButtonProps) => {
+	const styles = 'pr-3 pl-3 text-gray-700 rounded-lg text-md';
 	return (
 		<button
 			className={

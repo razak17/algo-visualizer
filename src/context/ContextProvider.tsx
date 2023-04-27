@@ -69,9 +69,7 @@ const initialState = {
 	notification: false
 };
 
-export const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
-	children
-}) => {
+export const ContextProvider = ({ children }: { children: React.ReatNode }) => {
 	const [activeMenu, setActiveMenu] = useState(true);
 	const [sortArraySorted, setSortArraySorted] = useState(true);
 	const [screenSize, setScreenSize] = useState<ScreenSizeType>(undefined);

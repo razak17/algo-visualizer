@@ -1,9 +1,9 @@
-import { FC } from '../types';
-
-const Dropdown: FC<{
+interface DropdownProps {
 	onChange: React.ChangeEventHandler<HTMLSelectElement>;
 	disabled: boolean;
-}> = ({ onChange, disabled }) => {
+}
+
+const Dropdown = ({ onChange, disabled }: DropdownProps) => {
 	const styles = 'p-4 rounded-lg border-none text-md';
 
 	return (
